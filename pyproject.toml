@@ -1,0 +1,27 @@
+[project]
+name = "vision"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+  "torch>=2.11.0",
+  "torchvision>=0.26.0",
+  "ultralytics[export]>=8.4.33",
+  "tensorrt-cu13>=10.15,!=10.1.0",
+  "sam3[notebooks]",
+]
+
+[dependency-groups]
+dev = ["ipykernel", "ipywidgets", "pre-commit"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu130" }
+onnxruntime-gpu = { index = "jetson-ai-lab" }
+sam3 = { git = "https://github.com/Kaweees/sam3.git" }
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
