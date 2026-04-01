@@ -11,6 +11,8 @@ dependencies = [
   "ultralytics[export]>=8.4.33",
   "tensorrt-cu13>=10.15,!=10.1.0",
   "sam3[notebooks]",
+  "clip",
+  "transformers>=5.4.0",
 ]
 
 [dependency-groups]
@@ -18,8 +20,10 @@ dev = ["ipykernel", "ipywidgets", "pre-commit"]
 
 [tool.uv.sources]
 torch = { index = "pytorch-cu130" }
+torchvision = { index = "pytorch-cu130" }
 onnxruntime-gpu = { index = "jetson-ai-lab" }
-sam3 = { git = "https://github.com/Kaweees/sam3.git" }
+sam3 = { path = "/home/kaweees/Documents/sam3", editable = true }
+clip = { git = "https://github.com/ultralytics/CLIP" }
 
 [[tool.uv.index]]
 name = "pytorch-cu130"
